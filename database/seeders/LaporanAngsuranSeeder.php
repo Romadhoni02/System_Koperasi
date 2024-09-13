@@ -12,7 +12,7 @@ class LaporanAngsuranSeeder extends Seeder
     {
         DB::table('laporan_angsuran')->insert([
             [
-                'angsuran_id' => 1, // Asumsikan id 1 untuk angsuran pertama
+                'angsuran_id' => 3, // Asumsikan id 1 untuk angsuran pertama
                 'detail_laporan' => 'Laporan untuk angsuran pinjaman AG001',
             ],
         ]);

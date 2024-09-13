@@ -21,6 +21,6 @@ class LaporanAngsuranModel extends Model
     // Definisi relasi ke tabel Angsuran (jika diperlukan)
     public function angsuran()
     {
-        return $this->belongsTo(AngsuranModel::class, 'angsuran_id');
+        return $this->belongsTo(AngsuranModel::class, 'angsuran_id','id');
     }
 }
