@@ -9,11 +9,13 @@
         <!-- Anggota -->
         <div class="col-md-3 mb-3">
             <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-users fa-2x text-danger"></i> <!-- Icon anggota -->
-                    <h5 class="card-title mt-2">ANGGOTA</h5>
-                    <p class="card-text">{{ $data['anggota'] }}</p>
-                </div>
+                <a href="{{ url('/users') }}" class="nav-link">
+                    <div class="card-body">
+                        <i class="fas fa-users fa-2x text-danger"></i> <!-- Icon anggota -->
+                        <h5 class="card-title mt-2">MANAJEMEN PENGGUNA</h5>
+                        <p class="card-text">{{ $data['manajemen pengguna'] }}</p>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -22,8 +24,8 @@
             <div class="card text-center">
                 <div class="card-body">
                     <i class="fas fa-box fa-2x text-success"></i> <!-- Icon produk -->
-                    <h5 class="card-title mt-2">ITEM PRODUK</h5>
-                    <p class="card-text">{{ $data['itemProduk'] }}</p>
+                    <h5 class="card-title mt-2">DATA MEMBER</h5>
+                    <p class="card-text">{{ $data['data member'] }}</p>
                 </div>
             </div>
         </div>
@@ -93,42 +95,6 @@
                     <i class="fas fa-exclamation-circle fa-2x text-danger"></i> <!-- Icon belum bayar -->
                     <h5 class="card-title mt-2">UANG KREDIT: BELUM BAYAR</h5>
                     <p class="card-text">Rp {{ number_format($data['uangKreditBelumBayar'], 0, ',', '.') }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Row ketiga -->
-    <div class="row">
-        <!-- Uang Kredit: Angsuran -->
-        <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-hand-holding-usd fa-2x text-info"></i> <!-- Icon angsuran -->
-                    <h5 class="card-title mt-2">UANG KREDIT: ANGSURAN</h5>
-                    <p class="card-text">Rp {{ number_format($data['uangKreditAngsuran'], 0, ',', '.') }}</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Login Terakhir -->
-        <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-calendar-alt fa-2x text-primary"></i> <!-- Icon login terakhir -->
-                    <h5 class="card-title mt-2">LOGIN TERAKHIR</h5>
-                    <p class="card-text">{{ $data['loginTerakhir'] }}</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Entri Terakhir -->
-        <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-calendar-check fa-2x text-primary"></i> <!-- Icon entri terakhir -->
-                    <h5 class="card-title mt-2">ENTRI TERAKHIR</h5>
-                    <p class="card-text">{{ $data['entriTerakhir'] }}</p>
                 </div>
             </div>
         </div>
