@@ -37,7 +37,7 @@ class PinjamanController extends Controller
         ]);
 
         $pinjaman->save();
-        return redirect('/pinjamans')->with('success', 'Pinjaman created successfully');
+        return redirect('/pinjaman')->with('success', 'Pinjaman created successfully');
     }
 
     // Display the specified pinjaman
@@ -69,7 +69,7 @@ class PinjamanController extends Controller
         $pinjaman->tanggal_pinjaman = $request->get('tanggal_pinjaman');
         $pinjaman->save();
 
-        return redirect('/pinjamans')->with('success', 'Pinjaman updated successfully');
+        return redirect('/pinjaman')->with('success', 'Pinjaman updated successfully');
     }
 
     // Remove the specified pinjaman from the database
@@ -78,6 +78,7 @@ class PinjamanController extends Controller
         $pinjaman = PinjamanModel::findOrFail($id);
         $pinjaman->delete();
 
-        return redirect('/pinjamans')->with('success', 'Pinjaman deleted successfully');
+        return redirect('/pinjaman')->with('success', 'Pinjaman created successfully');
+
     }
 }

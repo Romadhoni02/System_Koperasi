@@ -21,6 +21,7 @@
                     <td>
                         <a href="{{ route('laporans.show', $laporan->id) }}" class="btn btn-info">Detail</a>
                         <a href="{{ route('laporans.edit', $laporan->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('laporans.pdf') }}" class="btn btn-success">Download PDF</a>
                         <form action="{{ route('laporans.destroy', $laporan->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')

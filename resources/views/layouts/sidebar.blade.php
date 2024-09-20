@@ -1,3 +1,4 @@
+<!-- Sidebar -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
@@ -22,17 +23,16 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
                 <!-- Data Pengguna -->
                 <li class="nav-header">Data Pengguna</li>
                 <li class="nav-item">
-                    <a href="{{ url('/users') }}" class="nav-link {{ ($activeMenu ?? '') == 'users' ? 'active' : '' }}">
+                    <a href="{{ url('/users') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Manajemen Pengguna</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/members') }}" class="nav-link {{ ($activeMenu ?? '') == 'anggota' ? 'active' : '' }}">
+                    <a href="{{ url('/members') }}" class="nav-link">
                         <i class="nav-icon far fa-user"></i>
                         <p>Data Member</p>
                     </a>
@@ -40,45 +40,49 @@
 
                 <!-- Data Transaksi -->
                 <li class="nav-header">Data Transaksi</li>
-                <li class="nav-item">
-                    <a href="{{ url('/pinjamans') }}" class="nav-link {{ ($activeMenu ?? '') == 'pinjamans' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-wallet"></i>
-                        <p>Pinjaman</p>
-                    </a>
 
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/perjanjian') }}" class="nav-link {{ ($activeMenu ?? '') == 'perjanjian' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-hand-holding-usd"></i>
-                        <p>Perjanjian Pinjaman</p>
+                <!-- Peminjaman (Dropdown) -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-money-bill"></i>
+                        <p>
+                            Peminjaman
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('/pinjaman') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pinjaman</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/angsuran') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Angsuran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/perjanjian') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Perjanjian Pinjaman</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/laporans') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pinjaman</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/laporanA') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Angsuran</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-
-                <!-- Data Laporan -->
-                <li class="nav-header">Data Laporan</li>
-                <li class="nav-item">
-                    <a href="{{ url('/laporans') }}" class="nav-link {{ ($activeMenu ?? '') == 'laporans' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-chart-line"></i>
-                        <p>Laporan Pinjaman</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/laporanA') }}" class="nav-link {{ ($activeMenu ?? '') == 'laporana' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-chart-line"></i>
-                        <p>Laporan Angsuran</p>
-                    </a>
-                </li>
-
-
-                <!-- Data Tarik Tunai -->
-                <li class="nav-header">Data Tarik Tunai</li>
-                <li class="nav-item">
-                    <a href="{{ url('/anggaran') }}" class="nav-link {{ ($activeMenu ?? '') == 'anggaran' ? 'active' : '' }}">
-                        <i class="nav-icon far fa-clock"></i>
-                        <p>Angsuran</p>
-                    </a>
-                </li>
-
                 <!-- Tambahan Menu Logout -->
                 <li class="nav-header">Akun</li>
                 <li class="nav-item">

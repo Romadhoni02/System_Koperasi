@@ -27,5 +27,6 @@
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ route('users.index')}}" class="btn btn-secondary">Back</a>
     </form>
 @endsection

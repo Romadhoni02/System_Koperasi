@@ -18,5 +18,6 @@
             <input type="date" class="form-control" id="registration_date" name="registration_date" value="{{ $member->registration_date }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ route('members.index') }}" class="btn btn-secondary">Back</a>
     </form>
 @endsection

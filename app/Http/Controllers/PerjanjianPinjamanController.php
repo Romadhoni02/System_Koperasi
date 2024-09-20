@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PerjanjianModel;
 use Illuminate\Http\Request;
 use App\Models\PerjanjianPinjaman;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PerjanjianPinjamanController extends Controller
 {
@@ -67,4 +68,19 @@ class PerjanjianPinjamanController extends Controller
         $perjanjian->delete();
         return redirect()->route('perjanjian.index')->with('success', 'Perjanjian berhasil dihapus.');
     }
+
+    public function generatePDF()
+    {
+        // Fetch all records from the 'PerjanjianModel'
+        $laporanAs = PerjanjianModel::all();
+
+        // Load the view for the PDF generation
+        $pdf = Pdf::loadView('Perjanjian.pdf', compact('laporanAs'));
+
+        // Return the generated PDF
+        return $pdf->download('perjanjian_pinjaman.pdf');
+    }
+
+
+
 }

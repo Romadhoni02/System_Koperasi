@@ -60,7 +60,7 @@ Route::middleware(['auth'])->group(function() {
 
 
     // Route untuk Data Transaksi (Pinjaman dan Perjanjian Pinjaman)
-    Route::group(['prefix' => 'pinjamans'], function() {
+    Route::group(['prefix' => 'pinjaman'], function() {
         Route::get('/', [PinjamanController::class, 'index'])->name('pinjamans.index'); // Route untuk list pinjaman
         Route::get('/create', [PinjamanController::class, 'create'])->name('pinjamans.create'); // Form untuk create
         Route::post('/', [PinjamanController::class, 'store'])->name('pinjamans.store'); // Menyimpan pinjaman baru
@@ -78,7 +78,10 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/{id}', [PerjanjianPinjamanController::class, 'show'])->name('perjanjian.show');  // Detail Perjanjian Pinjaman
         Route::get('/{id}/edit', [PerjanjianPinjamanController::class, 'edit'])->name('perjanjian.edit'); // Form edit Perjanjian Pinjaman
         Route::put('/{id}', [PerjanjianPinjamanController::class, 'update'])->name('perjanjian.update'); // Update Perjanjian Pinjaman
-        Route::delete('/{id}', [PerjanjianPinjamanController::class, 'destroy'])->name('perjanjian.destroy'); // Hapus Perjanjian Pinjaman
+        Route::delete('/{id}', [PerjanjianPinjamanController::class, 'destroy'])->name('perjanjian.destroy'); // Hapus Perjanjian
+        Route::get('/laporans/pdf', [PerjanjianPinjamanController::class, 'generatePDF'])->name('perjanjian.pdf');
+
+
     });
 
     // Route untuk Data Laporan (Laporan Pinjaman dan Laporan Angsuran)
@@ -91,6 +94,8 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/{id}/edit', [LaporanPinjamanController::class, 'edit'])->name('laporans.edit');
         Route::put('/{id}', [LaporanPinjamanController::class, 'update'])->name('laporans.update');
         Route::delete('/{id}', [LaporanPinjamanController::class, 'destroy'])->name('laporans.destroy');
+        Route::get('/laporans/pdf', [LaporanPinjamanController::class, 'generatePDF'])->name('laporans.pdf');
+
     });
 
 
@@ -103,11 +108,13 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/{id}/edit', [LaporanAngsuranController::class, 'edit'])->name('laporanA.edit');
         Route::put('/{id}', [LaporanAngsuranController::class, 'update'])->name('laporanA.update');
         Route::delete('/{id}', [LaporanAngsuranController::class, 'destroy'])->name('laporanA.destroy');
+        Route::get('/laporans/pdf', [LaporanAngsuranController::class, 'generatePDF'])->name('laporanA.pdf');
+
     });
 
 
     // Route untuk Data Angsuran
-    Route::group(['prefix' => 'anggaran'], function() {
+    Route::group(['prefix' => 'angsuran'], function() {
         Route::get('/', [AngsuranController::class, 'index'])->name('anggaran.index');
         Route::post('/list', [AngsuranController::class, 'list'])->name('anggaran.list');
         Route::get('/create', [AngsuranController::class, 'create'])->name('anggaran.create');

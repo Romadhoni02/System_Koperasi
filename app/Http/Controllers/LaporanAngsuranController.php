@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\LaporanAngsuran;
 use App\Models\LaporanAngsuranModel;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class LaporanAngsuranController extends Controller
 {
@@ -67,4 +69,19 @@ class LaporanAngsuranController extends Controller
         $laporanA->delete();
         return redirect()->route('laporanA.index')->with('success', 'Laporan Angsuran berhasil dihapus.');
     }
+
+
+    public function generatePDF()
+    {
+        // Fetch all LaporanAngsuran records and assign to 'laporanAs'
+        $laporanAs = LaporanAngsuranModel::all();
+
+        // Load the view for the PDF with the 'laporanAs' variable
+        $pdf = Pdf::loadView('LaporanAngsuran.pdf', compact('laporanAs'));
+
+        // Return the generated PDF for download
+        return $pdf->download('laporan_angsuran.pdf');
+    }
+
+
 }

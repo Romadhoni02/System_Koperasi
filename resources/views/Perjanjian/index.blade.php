@@ -26,6 +26,7 @@
                         <!-- Perbaiki route untuk tombol edit -->
                         <a href="{{ route('perjanjian.edit', $perjanjian->id) }}" class="btn btn-warning">Edit</a>
                         <!-- Perbaiki form untuk delete -->
+                        <a href="{{ route('perjanjian.pdf') }}" class="btn btn-success">Download PDF</a>
                         <form action="{{ route('perjanjian.destroy', $perjanjian->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')

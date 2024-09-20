@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\Request; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

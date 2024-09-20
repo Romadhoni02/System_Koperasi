@@ -6,8 +6,12 @@
     <form action="{{ route('anggaran.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="pinjaman_id">Pinjaman ID</label>
-            <input type="number" name="pinjaman_id" class="form-control" id="pinjaman_id" required>
+            <label for="pinjaman_id">Pilih Pinjaman</label>
+            <select name="pinjaman_id" class="form-control" id="pinjaman_id" required>
+                @foreach ($pinjaman as $p)
+                    <option value="{{ $p->id }}">{{ $p->id }} - Jumlah: {{ $p->jumlah }}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="form-group">

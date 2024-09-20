@@ -18,5 +18,6 @@
             <input type="date" class="form-control" id="tanggal_pinjaman" name="tanggal_pinjaman" value="{{ $pinjaman->tanggal_pinjaman }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ route('pinjamans.index')}}" class="btn btn-secondary">Back</a>
     </form>
 @endsection

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Angsuran;
 use App\Models\AngsuranModel;
+use App\Models\PinjamanModel;
 use Illuminate\Http\Request;
 
 class AngsuranController extends Controller
@@ -18,19 +18,22 @@ class AngsuranController extends Controller
     // Menampilkan form create
     public function create()
     {
-        return view('Angsuran.create');
+        $pinjaman = PinjamanModel::all(); // Mengambil semua data pinjaman
+        return view('Angsuran.create', compact('pinjaman'));
     }
+
 
     // Menyimpan angsuran baru
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'pinjaman_id' => 'required|integer',
+            'pinjaman_id' => 'required|exists:pinjaman,id',
             'jumlah_angsuran' => 'required|numeric',
             'tanggal_angsuran' => 'required|date',
         ]);
 
         AngsuranModel::create($validatedData);
+
         return redirect()->route('anggaran.index')->with('success', 'Angsuran berhasil ditambahkan.');
     }
 
